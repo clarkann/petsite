@@ -1,0 +1,11 @@
+{% extends 'adoption/base.html' %}
+{% block title %}Donate - PetSite{% endblock %}
+
+{% block content %}
+<section class="donate-section" style="padding: 2rem;">
+    <h2>Support Our Mission</h2>
+    <p>Help us care for animals in need. Your donation goes directly to food, shelter, and medical care.</p>
+    <a href="{% url 'donation_form' %}" style="background-color: #ff3333; color: white; padding: 12px 24px; border: none; border-radius: 8px; text-decoration: none; display: inline-block;">
+    Donate Now</a>
+</section>
+{% endblock %}

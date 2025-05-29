@@ -1,0 +1,43 @@
+{% extends 'adoption/base.html' %}
+{% load static %}
+{% block title %}Adopt - Rescue & Rehome{% endblock %}
+
+{% block content %}
+    <div style="color: #121212; margin-bottom: 16px; font-size: 2.5rem; font-weight: bold;">Adopt a Shelter Cat or Dog</div>
+    <p>
+        Our adoptable cats and dogs are ready to find their forever homes! While we recommend spaying/neutering to prevent overpopulation, it’s okay if you choose not to neuteralized your chosen pet – and for that the adoption fee will be P300 in that case. Rest assured, all our pets are thoroughly checked and free of fur bugs. Here’s how to adopt:
+    </p>
+    <ol style="text-align: left; margin: 18px 0 18px 24px;">
+        <li>Submit the adoption application form</li>
+        <li>Attend the Zoom interview</li>
+        <li>Meet our shelter animals in person</li>
+        <li>Visit your chosen pet to confirm your choice</li>
+        <li>Wait for vet clearance and schedule pick-up</li>
+        <li>Pay the adoption fee (P300 without kapon, P500 with kapon for cats / P1000 with kapon for dogs)</li>
+        <li>Take your new best friend home!</li>
+    </ol>
+
+<div class="adopt-filters">
+    <a href="{% url 'adopt' %}" class="filter-btn {% if not filter or filter == 'all' %}active{% endif %}">All</a>
+    <a href="{% url 'adopt' %}?filter=cats" class="filter-btn {% if filter == 'cats' %}active{% endif %}">Cats</a>
+    <a href="{% url 'adopt' %}?filter=dogs" class="filter-btn {% if filter == 'dogs' %}active{% endif %}">Dogs</a>
+</div>
+
+<div class="pet-list" style="display: flex; flex-wrap: wrap; gap: 24px; padding: 20px;">
+    {% for pet in pets %}
+        <div class="pet-card" style="width: 200px; padding: 16px; background-color: #fff; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+            <a href="{% url 'pet_detail' pet.id %}" style="text-decoration: none; color: inherit;">
+                {% if pet.image %}
+                    <img src="{{ pet.image.url }}" alt="{{ pet.name }}" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;">
+                {% else %}
+                    <img src="{% static 'images/pinpin.jpg' %}" alt="No Image Available" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; background-color: #ddd; margin-bottom: 8px;">
+                {% endif %}
+                <div class="pet-name" style="font-weight: bold;">{{ pet.name|upper }}</div>
+            </a>
+        </div>
+    {% empty %}
+        <p>No pets found.</p>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,350 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    background: url("{% static 'adoption/images/background.png' %}") center/cover no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: relative;  /* Changed to relative for overlay positioning */
+    top: 0;
+    background: url("{% static 'adoption/images/animals.jpg' %}") center/cover no-repeat;
+    height: 200px;  /* Adjust height as needed */
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  /* Ensures content doesn't overflow */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 111, 97, 0.6);  /* Red overlay with transparency */
+    z-index: 1;
+}
+
+header h1 {
+    position: relative;  
+    z-index: 2;  /* Ensures it is above the overlay */
+    color: #fff;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 150px;  /* Adjust height for smaller screens */
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+nav {
+    background-color: #fff;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FF6F61;
+}
+
+.form-container {
+    width: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #FF6F61;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #e65b54;
+}
+
+.form-container li {
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;  /* Arrange content vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 20px;
+    border-radius: 8px;
+}
+
+.intro-content {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.intro-content h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.intro-content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.intro-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.intro-buttons .button {
+    background-color: #FF6F61;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.intro-buttons .button:hover {
+    background-color: #e65b54;
+}
+
+.intro-buttons .button.secondary {
+    background-color: #555;
+}
+
+.intro-buttons .button.secondary:hover {
+    background-color: #333;
+}
+
+.intro-image {
+   width: 100%;
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+.intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+@media (max-width: 769px) {
+    .introduction {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-content {
+        padding-right: 0;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+}
+
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+    margin: 0 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.about-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-content h3 {
+    font-size: 1.5rem;
+    color: #FF6F61;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.about-content ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.about-content ul li {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.about-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.about-buttons .button {
+    background-color: #FF6F61;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.about-buttons .button:hover {
+    background-color: #e65b54;
+}
+
+.about-buttons .button.secondary {
+    background-color: #555;
+}
+
+.about-buttons .button.secondary:hover {
+    background-color: #333;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.adopt-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    justify-content: center;
+}
+.filter-btn {
+    padding: 10px 28px;
+    border: none;
+    background: #eee;
+    color: #222;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+.filter-btn.active, .filter-btn:hover {
+    background: #222;
+    color: #fff;
+}
+.pet-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+}
+.pet-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 12px;
+    text-align: center;
+    width: 220px;
+}
+.pet-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.pet-name {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00e600;
+    letter-spacing: 1px;
+}

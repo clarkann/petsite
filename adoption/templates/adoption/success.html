@@ -1,0 +1,11 @@
+{% extends 'adoption/base.html' %}
+{% block content %}
+    <section style="text-align:center; padding: 50px;">
+        <h2>Application Submitted Successfully!</h2>
+        <p>Thank you for applying to adopt. We’ll review your application and contact you soon.</p>
+    </section>
+           <div class="intro-buttons" style="margin-top: 2rem;">
+            <a href="{% url 'adopt' %}" class="button">Adopt a Pet</a>
+            <a href="{% url 'donate' %}" class="button secondary">Make a Donation</a>
+        </div>
+{% endblock %}

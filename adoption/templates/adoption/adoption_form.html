@@ -1,0 +1,13 @@
+{% extends 'adoption/base.html' %}
+{% block title %}Adoption Application{% endblock %}
+
+{% block content %}
+<section style="padding: 40px; text-align: center;">
+    <h2>Adoption Application</h2>
+    <form method="post" enctype="multipart/form-data" style="max-width: 600px; margin: auto;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="background-color: #ff3333; color: #0f0f0f; padding: 12px 24px; border: none; border-radius: 8px;">Submit Application</button>
+    </form>
+</section>
+{% endblock %}
